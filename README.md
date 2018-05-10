@@ -39,20 +39,20 @@ Collect driving data in training mode.  The process will produce a data folder c
 
 To train, run (in vincent490/simulator):
 ```
-python model.py -d `[data folder, the parent of IMG]` -o 'false'
+python model.py -d [data folder, the parent of IMG] -o 'false'
 ```
 The -o 'true' flag only saves models at checkpoints where the model performs better by Keras's metrics.  I have found this to be undesirable.
 
 ```model.py``` will produce multiple .h5 files that are trained networks that can be used for steering control.  To test it, open the simulator and enter autonomous mode.  Then run the following command, which takes a mandatory parameter (.h5 file path):
 ```
-python drive.py `[.h5 file]`
+python drive.py [.h5 file]
 ```
 If you don't wish to train your own model, you can use the one I trained, ```titled model_sim.h5```.
 
 
 Once you have a suitable trained net, run VisualBackProp.  Then following command takes two mandatory parameters (a .h5 file path and an image file path):
 ```
-python vbp_display.py `[.h5 file]` `[img file]`
+python vbp_display.py [.h5 file] [img file]
 ```
 I have also provided a sample image that can be used alongside my ```model_sim.h5```.  Run:
 ```
@@ -67,12 +67,12 @@ python model.py -d driving_dataset -o 'false'
 
 To see the system "drive" the car, run the following (the default value of the second parameter is driving_dataset, so it's optional):
 ```
-python run`_dataset.py [.h5 file] driving_`dataset
+python run_dataset.py [.h5 file] driving_dataset
 ```
 
 Finally, just as before, run VisualBackProp with the same two mandatory parameters:
 ```
-python vbp_display.py `[.h5 file]` `[img file]`
+python vbp_display.py [.h5 file] [img file]
 ```
 I have again provided a sample iamge that can be used alongsie ```model_street.h5```.  Run:
 ```
