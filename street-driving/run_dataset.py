@@ -2,8 +2,7 @@
 import argparse
 import tensorflow as tf
 import scipy.misc
-import model
-import cv2
+import cv2, os
 from subprocess import call
 from keras.models import load_model
 import numpy as np
@@ -33,7 +32,7 @@ if __name__ == '__main__':
 
     i = 0
     while(cv2.waitKey(10) != ord('q')):
-        full_image = scipy.misc.imread(args.image_folder + str(i) + ".jpg", mode="RGB")
+        full_image = scipy.misc.imread(os.path.join(args.image_folder, str(i) + ".jpg"), mode="RGB")
         image = cv2.resize(full_image[-150:, :, :], (200, 66), cv2.INTER_AREA)
         image = cv2.cvtColor(image, cv2.COLOR_RGB2YUV)
         image = np.array([image])
