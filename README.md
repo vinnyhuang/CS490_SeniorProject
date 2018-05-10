@@ -54,7 +54,7 @@ Once you have a suitable trained net, run VisualBackProp.  Then following comman
 ```
 python vbp_display.py `[.h5 file]` `[img file]`
 ```
-I have also provided a sampel image that can be used alongside my ```model_sim.h5```.  Run:
+I have also provided a sample image that can be used alongside my ```model_sim.h5```.  Run:
 ```
 python vbp_display.py model_sim.h5 center_2018_04_25_17_33_36_293.jpg
 ```
@@ -65,4 +65,16 @@ Download the data from this [link](https://drive.google.com/file/d/0B-KJCaaF7ell
 python model.py -d driving_dataset -o 'false'
 ```
 
-To see the system "drive" the car, run 
+To see the system "drive" the car, run the following (the default value of the second parameter is driving_dataset, so it's optional):
+```
+python run`_dataset.py [.h5 file] driving_`dataset
+```
+
+Finally, just as before, run VisualBackProp with the same two mandatory parameters:
+```
+python vbp_display.py `[.h5 file]` `[img file]`
+```
+I have again provided a sample iamge that can be used alongsie ```model_street.h5```.  Run:
+```
+python vbp_display.py model_street.h5 485.jpg
+```
