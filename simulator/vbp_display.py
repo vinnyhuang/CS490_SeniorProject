@@ -76,7 +76,7 @@ def main():
     model = load_model(model_path)
 
     # Load an image and make the prediction
-    # img_path = '/home/accts/vwh5/senior-project/beta_simulator_linux/recordings_track1/IMG/center_2018_04_25_17_33_36_293.jpg'
+    # img_path = 'center_2018_04_25_17_33_36_293.jpg'
     img_path = (args.img_path)
     if not os.path.isabs(img_path):
         img_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), img_path)
@@ -89,7 +89,7 @@ def main():
     mask = visual_bprop.get_mask(x[0])
     mask = cv2.resize(mask, (ORIGINAL_WIDTH, ORIGINAL_HEIGHT - HEIGHT_OFFSET_TOP - HEIGHT_OFFSET_BOTTOM), cv2.INTER_AREA)
 
-    # mask = np.full((75, 320, 3), 255.0) - np.matmul(mask[:, :, np.newaxis], np.array([[[1, 0, 1]]])) # White background
+    # mask = np.full((ORIGINAL_HEIGHT - HEIGHT_OFFSET_TOP - HEIGHT_OFFSET_BOTTOM, ORIGINAL_WIDTH, 3), 255.0) - np.matmul(mask[:, :, np.newaxis], np.array([[[1, 0, 1]]])) # White background
     mask = np.matmul(mask[:, :, np.newaxis], np.array([[[0, 1, 0]]])) # Black background
     cv2.imwrite('mask.png', mask)
     mask = load_image(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'mask.png'))

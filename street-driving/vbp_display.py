@@ -79,7 +79,7 @@ def main():
     model = load_model(model_path)
 
     # Load an image and make the prediction
-    # img_path = '/home/accts/vwh5/cs490/Autopilot-TensorFlow/driving_dataset/485.jpg'
+    # img_path = '485.jpg'
     img_path = (args.img_path)
     if not os.path.isabs(img_path):
         img_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), img_path)
